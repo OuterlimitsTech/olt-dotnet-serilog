@@ -16,4 +16,14 @@
   <Folder Name="/tests/">
     <Project Path="tests/OLT.Logging.Serilog.Tests/OLT.Logging.Serilog.Tests.csproj" />
   </Folder>
+  <Folder Name="/tests/OLT.AspNetCore.Serilog.Tests/">
+    <File Path="tests/OLT.AspNetCore.Serilog.Tests/Directory.Build.props" />
+    <Project Path="tests/OLT.AspNetCore.Serilog.Tests/OLT.AspNetCore.Serilog.Tests.BadRequest/OLT.AspNetCore.Serilog.Tests.BadRequest.csproj" />
+    <Project Path="tests/OLT.AspNetCore.Serilog.Tests/OLT.AspNetCore.Serilog.Tests.General/OLT.AspNetCore.Serilog.Tests.General.csproj" />
+    <Project Path="tests/OLT.AspNetCore.Serilog.Tests/OLT.AspNetCore.Serilog.Tests.Helper/OLT.AspNetCore.Serilog.Tests.Helper.csproj" />
+    <Project Path="tests/OLT.AspNetCore.Serilog.Tests/OLT.AspNetCore.Serilog.Tests.Identity/OLT.AspNetCore.Serilog.Tests.Identity.csproj" />
+    <Project Path="tests/OLT.AspNetCore.Serilog.Tests/OLT.AspNetCore.Serilog.Tests.RecordNotFound/OLT.AspNetCore.Serilog.Tests.RecordNotFound.csproj" />
+    <Project Path="tests/OLT.AspNetCore.Serilog.Tests/OLT.AspNetCore.Serilog.Tests.ThrowError/OLT.AspNetCore.Serilog.Tests.ThrowError.csproj" />
+    <Project Path="tests/OLT.AspNetCore.Serilog.Tests/OLT.AspNetCore.Serilog.Tests.ValidationError/OLT.AspNetCore.Serilog.Tests.ValidationError.csproj" />
+  </Folder>
 </Solution>

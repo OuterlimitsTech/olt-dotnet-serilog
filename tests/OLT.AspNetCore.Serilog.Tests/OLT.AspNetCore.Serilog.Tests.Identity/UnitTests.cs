@@ -1,17 +1,15 @@
-using AwesomeAssertions;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
-using OLT.Constants;
+using Microsoft.Extensions.Hosting;
 using OLT.Core;
-using OLT.Logging.Serilog;
 using Serilog;
+using Serilog.Sinks.InMemory;
 using Serilog.Sinks.TestCorrelator;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
-
 
 namespace OLT.AspNetCore.Serilog.Tests.Identity
 {
@@ -20,19 +18,30 @@ namespace OLT.AspNetCore.Serilog.Tests.Identity
         [Fact]
         public async Task MiddlewareTest()
         {
-            using (var testServer = new TestServer(TestHelper.WebHostBuilder<StartupMiddleware>()))
-            {
-                using (var logger = new LoggerConfiguration().WriteTo.Sink(new TestCorrelatorSink()).Enrich.FromLogContext().CreateLogger())
+            using var host = new HostBuilder()
+                .ConfigureLogging(p =>
                 {
-                    Log.Logger = logger;
-                    var identity = testServer.Services.GetRequiredService<IOltIdentity>();
+                    p.AddSerilog(new LoggerConfiguration().WriteTo.Sink(new TestCorrelatorSink()).Enrich.FromLogContext().CreateLogger());
+                })
+                .ConfigureWebHost(webHostBuilder =>
+                {
+                    webHostBuilder
+                        .UseTestServer()
+                        .UseContentRoot(System.IO.Directory.GetCurrentDirectory())                        
+                        .UseStartup<StartupMiddleware>();
+                })
+            .Build();
 
-                    var response = await testServer.CreateRequest("/api").SendAsync("GET");
-                    Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-                    var logs = TestCorrelator.GetLogEventsFromCurrentContext().ToList();
-                    TestHelper.TestIdentityProperties(logs.First().Properties, identity);
-                }
-            }
+            await host.StartAsync();
+
+            using var testServer = host.GetTestServer();
+
+            var identity = testServer.Services.GetRequiredService<IOltIdentity>();
+
+            var response = await testServer.CreateRequest("/api").SendAsync("GET");
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            var logs = InMemorySink.Instance.LogEvents.ToList();
+            TestHelper.TestIdentityProperties(logs.First().Properties, identity);
         }
     }
 }

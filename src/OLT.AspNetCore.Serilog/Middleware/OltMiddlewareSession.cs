@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using OLT.Core;
 using System.Threading.Tasks;
-using LogContext = Serilog.Context.LogContext;
+using Serilog.Context;
 
 namespace OLT.Logging.Serilog
 {

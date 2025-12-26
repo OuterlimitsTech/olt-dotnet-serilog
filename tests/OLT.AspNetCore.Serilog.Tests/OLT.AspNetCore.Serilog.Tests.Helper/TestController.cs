@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OLT.Core;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -20,6 +21,7 @@ namespace OLT.AspNetCore.Serilog.Tests
                 id = 1,
             };
 
+            Log.Information("Simple Results Id {Id}", result.id);
             return Ok(result);
         }
 
