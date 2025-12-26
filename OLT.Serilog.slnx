@@ -7,7 +7,9 @@
     <File Path="src/Directory.Build.props" />
   </Folder>
   <Folder Name="/src/">
+    <Project Path="src/OLT.AspNetCore.Serilog/OLT.AspNetCore.Serilog.csproj" Id="15400b99-351e-4ba4-afd1-4573e7964062" />
     <Project Path="src/OLT.Logging.Serilog.Abstractions/OLT.Logging.Serilog.Abstractions.csproj" />
+    <Project Path="src/OLT.Logging.Serilog.Hosting/OLT.Logging.Serilog.Hosting.csproj" />
     <Project Path="src/OLT.Logging.Serilog.MSSqlServer/OLT.Logging.Serilog.MSSqlServer.csproj" />
     <Project Path="src/OLT.Logging.Serilog/OLT.Logging.Serilog.csproj" />
   </Folder>

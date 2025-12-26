@@ -27,6 +27,7 @@
 
 	
 	<ItemGroup>
+		<ProjectReference Include="..\..\src\OLT.Logging.Serilog.Hosting\OLT.Logging.Serilog.Hosting.csproj" />
 		<ProjectReference Include="..\..\src\OLT.Logging.Serilog.MSSqlServer\OLT.Logging.Serilog.MSSqlServer.csproj" />
 		<ProjectReference Include="..\..\src\OLT.Logging.Serilog\OLT.Logging.Serilog.csproj" />
 	</ItemGroup>
