@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+		<TargetFrameworks>net10.0;net9.0;net8.0</TargetFrameworks>
+    <RootNamespace>OLT.Serilog</RootNamespace>
+    <Description>Register Serilog Middleware to log all exceptions</Description>
+    <ProjectGuid>15400B99-351E-4BA4-AFD1-4573E7964062</ProjectGuid>
+		<Nullable>enable</Nullable>
+		<LangVersion>Latest</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+		<PackageReference Include="OLT.Core.Exception.Abstractions" Version="9.0.0" />		
+	</ItemGroup>
+	
+  <ItemGroup>		
+		<ProjectReference Include="..\OLT.Logging.Serilog.Hosting\OLT.Logging.Serilog.Hosting.csproj" />
+  </ItemGroup>
+	
+
+</Project>

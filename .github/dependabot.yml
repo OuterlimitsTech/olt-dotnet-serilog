@@ -9,11 +9,9 @@ updates:
       - "github-actions"
 
   - package-ecosystem: "nuget"
-    directory: "/"
+    directory: "/tests"
     schedule:
       interval: "weekly"
-    # ignore:
-    #   - dependency-name: "Newtonsoft.Json"
     labels:
       - "dependencies"
       - "nuget"

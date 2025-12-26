@@ -44,10 +44,10 @@ jobs:
 
       # https://www.seeleycoder.com/blog/sonarqube-with-github-actions-and-net-core-5-x/
       # this process reads the .config -> dotnet-tools.json to restore packages
-      # - name: Sonarqube Begin
-      #   run: |
-      #     dotnet tool restore          
-      #     dotnet tool run dotnet-sonarscanner begin /k:"OuterlimitsTech_olt-dotnet-newtonsoft" /o:"outerlimitstech" /d:sonar.login=${{ secrets.SONAR_TOKEN }} /d:sonar.host.url="https://sonarcloud.io" /d:sonar.scanner.scanAll=false /d:sonar.cs.vstest.reportsPaths=**/*.trx /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml /d:sonar.coverage.exclusions="**Test*.cs" /d:sonar.branch.name=${{ steps.branch-name.outputs.current_branch }}
+      - name: Sonarqube Begin
+        run: |
+          dotnet tool restore          
+          dotnet tool run dotnet-sonarscanner begin /k:"OuterlimitsTech_olt-dotnet-serilog" /o:"outerlimitstech" /d:sonar.login=${{ secrets.SONAR_TOKEN }} /d:sonar.host.url="https://sonarcloud.io" /d:sonar.scanner.scanAll=false /d:sonar.cs.vstest.reportsPaths=**/*.trx /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml /d:sonar.coverage.exclusions="**Test*.cs" /d:sonar.branch.name=${{ steps.branch-name.outputs.current_branch }}
 
       - name: Restore dependencies
         run: dotnet restore ${{ format('{0}/{1}', env.SOURCE_DIRECTORY, env.SOLUTION_FILE) }}
@@ -61,7 +61,7 @@ jobs:
           ASPNETCORE_ENVIRONMENT: Test
           DOTNET_ENVIRONMENT: Test
 
-      # - name: Sonarqube end
-      #   run: dotnet tool run dotnet-sonarscanner end /d:sonar.login=${{ secrets.SONAR_TOKEN }}
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Sonarqube end
+        run: dotnet tool run dotnet-sonarscanner end /d:sonar.login=${{ secrets.SONAR_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
