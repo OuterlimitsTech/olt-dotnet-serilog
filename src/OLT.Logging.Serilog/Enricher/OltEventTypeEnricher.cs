@@ -15,7 +15,7 @@ namespace OLT.Logging.Serilog.Enricher
             Murmur32 murmur = MurmurHash.Create32();
             byte[] bytes = Encoding.UTF8.GetBytes(logEvent.MessageTemplate.Text);
             byte[] hash = murmur.ComputeHash(bytes);
-            string hexadecimalHash = BitConverter.ToString(hash).Replace("-", "");
+            string hexadecimalHash = Convert.ToHexString(hash);
             LogEventProperty eventId = propertyFactory.CreateProperty(PropertyName, hexadecimalHash);
             logEvent.AddPropertyIfAbsent(eventId);
         }

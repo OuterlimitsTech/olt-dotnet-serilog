@@ -161,8 +161,8 @@ namespace OLT.Logging.Serilog.Tests.NgxLogger
                 TestCorrelator.GetLogEventsFromCurrentContext().Should().ContainSingle().Which.MessageTemplate.Text.Should().Be(OltSerilogConstants.Templates.NgxMessage.Template);
                 TestCorrelator.GetLogEventsFromCurrentContext().Should().ContainSingle().Which.Level.Should().Be(expected);
                 var props = TestCorrelator.GetLogEventsFromCurrentContext().First().Properties;
-                props.Count.Should().Be(1);
-                props.Should().ContainKey(OltSerilogConstants.Properties.NgxMessage.MessageAsJson);                
+                props.Count.Should().Be(2);
+                props.Should().ContainKey(OltSerilogConstants.Properties.NgxMessage.NgxDetail);                
 
                 if (model.IsError)
                 {

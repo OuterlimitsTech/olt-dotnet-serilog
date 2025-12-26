@@ -166,7 +166,6 @@ namespace OLT.Logging.Serilog
         {
             var mb = 1024f * 1024f;
             return Convert.ToDouble(bytes) / mb;
-            //return (bytes / 1024f) / 1024f;
         }
 
         private static string ToSizeString(long value)

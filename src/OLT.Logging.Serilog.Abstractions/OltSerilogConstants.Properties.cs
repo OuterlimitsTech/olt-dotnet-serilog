@@ -28,7 +28,7 @@
 
             public static class NgxMessage
             {
-                public const string MessageAsJson = "ngx-message-json";
+                public const string NgxDetail = "NgxDetail";
             }
         }
 

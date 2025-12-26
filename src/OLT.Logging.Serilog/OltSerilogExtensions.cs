@@ -27,7 +27,7 @@ namespace OLT.Core
         /// Enrich log the Environment Name <see cref="OltSerilogConstants.Properties.Environment"/> and <see cref="OltSerilogConstants.Properties.DebuggerAttached"/>
         /// </summary>
         /// <returns>Configuration object allowing method chaining.</returns>        
-        [Obsolete("Use to Serilog.Enrichers.Environment -> WithEnvironmentName")]
+        [Obsolete("Removing in 10.x, Use to Serilog.Enrichers.Environment -> WithEnvironmentName")]
         public static LoggerConfiguration WithOltEnvironment(this LoggerEnrichmentConfiguration loggerConfiguration, string environmentName)
         {
 
@@ -56,7 +56,7 @@ namespace OLT.Core
             if (level == LogEventLevel.Error)
             {
                 logger
-                    .ForContext(OltSerilogConstants.Properties.NgxMessage.MessageAsJson, model, destructureObjects: true)
+                    .ForContext(OltSerilogConstants.Properties.NgxMessage.NgxDetail, model, destructureObjects: true)
                     .Error(model.ToException(), OltSerilogConstants.Templates.NgxMessage.Template, model.FormatMessage());
                 return;
             }
@@ -64,14 +64,14 @@ namespace OLT.Core
             if (level == LogEventLevel.Fatal)
             {
                 logger
-                    .ForContext(OltSerilogConstants.Properties.NgxMessage.MessageAsJson, model, destructureObjects: true)
+                    .ForContext(OltSerilogConstants.Properties.NgxMessage.NgxDetail, model, destructureObjects: true)
                     .Fatal(model.ToException(), OltSerilogConstants.Templates.NgxMessage.Template, model.FormatMessage());
                 return;
             }
 
 
             logger
-                .ForContext(OltSerilogConstants.Properties.NgxMessage.MessageAsJson, model, destructureObjects: true)
+                .ForContext(OltSerilogConstants.Properties.NgxMessage.NgxDetail, model, destructureObjects: true)
                 .Write(level, OltSerilogConstants.Templates.NgxMessage.Template, model.FormatMessage());            
         }
 
@@ -85,17 +85,17 @@ namespace OLT.Core
             var level = model.Level?.ToMicrosoftLogLevel() ?? LogLevel.Information;
             if (level == LogLevel.Error)
             {
-                msLogger.LogError(model.ToException(), "ngx-message: {ngx-message}", model.FormatMessage());
+                msLogger.LogError(model.ToException(), "ngx-message: {FormatMessage}", model.FormatMessage());
                 return;
             }
 
             if (level == LogLevel.Critical)
             {
-                msLogger.LogCritical(model.ToException(), "ngx-message: {ngx-message}", model.FormatMessage());
+                msLogger.LogCritical(model.ToException(), "ngx-message: {FormatMessage}", model.FormatMessage());
                 return;
             }
 
-            msLogger.Log(level, "ngx-message: {ngx-message}", model.FormatMessage());
+            msLogger.Log(level, "ngx-message: {FormatMessage}", model.FormatMessage());
         }
     }
 }
