@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OLT.Core;
-using Serilog;
 using Serilog.Sinks.InMemory;
-using Serilog.Sinks.TestCorrelator;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -19,15 +17,11 @@ namespace OLT.AspNetCore.Serilog.Tests.Identity
         public async Task MiddlewareTest()
         {
             using var host = new HostBuilder()
-                .ConfigureLogging(p =>
-                {
-                    p.AddSerilog(new LoggerConfiguration().WriteTo.Sink(new TestCorrelatorSink()).Enrich.FromLogContext().CreateLogger());
-                })
                 .ConfigureWebHost(webHostBuilder =>
                 {
                     webHostBuilder
                         .UseTestServer()
-                        .UseContentRoot(System.IO.Directory.GetCurrentDirectory())                        
+                        .UseContentRoot(System.IO.Directory.GetCurrentDirectory())
                         .UseStartup<StartupMiddleware>();
                 })
             .Build();
