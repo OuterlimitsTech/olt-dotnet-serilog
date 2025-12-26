@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OLT.Logging.Serilog.Abstractions/OLT.Logging.Serilog.Abstractions.csproj" />
+    <Project Path="src/OLT.Logging.Serilog.MSSqlServer/OLT.Logging.Serilog.MSSqlServer.csproj" />
+    <Project Path="src/OLT.Logging.Serilog/OLT.Logging.Serilog.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/OLT.Logging.Serilog.Tests/OLT.Logging.Serilog.Tests.csproj" />
+  </Folder>
+</Solution>
