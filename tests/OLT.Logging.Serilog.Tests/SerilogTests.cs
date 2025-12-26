@@ -54,6 +54,7 @@ namespace OLT.Logging.Serilog.Tests
 
 
         [Fact]
+        [Obsolete("Use to Serilog.Enrichers.Environment -> WithEnvironmentName")]
         public void WithOltEnvironment()
         {
             var val = 1234;

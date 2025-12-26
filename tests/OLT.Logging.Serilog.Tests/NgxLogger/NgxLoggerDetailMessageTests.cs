@@ -24,7 +24,7 @@ namespace OLT.Logging.Serilog.Tests.NgxLogger
             Assert.Null(exception.Data["Time"]);
             Assert.False(exception.Data.Contains("Stack"));
 
-            model.Stack = new List<OltNgxLoggerStackJson>();
+            model.Stack = [];
             exception = model.ToException();
             Assert.False(exception.Data.Contains("Stack"));           
             
@@ -61,11 +61,10 @@ namespace OLT.Logging.Serilog.Tests.NgxLogger
 
         }
 
-        public static IEnumerable<object[]> NgxLoggerDetailData =>
-            new List<object[]>
-            {
-                new object[] { new HelperNgxExceptionTest(DateTimeOffset.Now) },
-                new object[] { new HelperNgxExceptionTest(null) },
-            };
+        public static TheoryData<HelperNgxExceptionTest> NgxLoggerDetailData =>
+            [
+                new HelperNgxExceptionTest(DateTimeOffset.Now),
+                new HelperNgxExceptionTest(null),
+            ];
     }
 }

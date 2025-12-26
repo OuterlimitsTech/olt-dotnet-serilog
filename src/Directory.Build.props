@@ -3,10 +3,10 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <Company>OuterLimits Technologies, Inc</Company>
-    <Product>OLT Core Libraries</Product>
+    <Product>OLT Serilog Libraries</Product>
     <Authors>Chris Straw</Authors>
     <Copyright>Copyright © 2003-2026, OuterLimits Technologies, Inc Plainfield, IN</Copyright>
-    <RepositoryUrl>https://github.com/OuterlimitsTech/olt-dotnet-core</RepositoryUrl>
+    <RepositoryUrl>https://github.com/OuterlimitsTech/olt-dotnet-serilog</RepositoryUrl>
     <PackageIcon>icon.png</PackageIcon>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <DebugType>embedded</DebugType>
@@ -38,11 +38,14 @@
 
   <PropertyGroup>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+		<NoWarn>$(NoWarn);IDE0130</NoWarn>
+		<!--IDE0130-->
+		<!--
     <NoWarn>$(NoWarn);S110</NoWarn>
     <NoWarn>$(NoWarn);S2436</NoWarn>
     <NoWarn>$(NoWarn);S5332</NoWarn>
-    <NoWarn>$(NoWarn);S3925</NoWarn>
+    <NoWarn>$(NoWarn);S3925</NoWarn>-->
   </PropertyGroup>
 
 </Project>
