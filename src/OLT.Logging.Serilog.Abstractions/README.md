@@ -9,11 +9,6 @@ Core abstractions, constants, and models for OLT Serilog extensions. This librar
 - **Serilog Constants** - Standardized property names, templates, and format strings
 - **NGX Logger Support** - Models and extensions for handling Angular ngx-logger messages
 
-## Target Frameworks
-
-- .NET 10.0
-- .NET 9.0
-- .NET 8.0
 
 ## Components
 
