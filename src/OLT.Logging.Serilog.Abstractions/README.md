@@ -198,6 +198,3 @@ if (ngxMessage.IsError)
 - `OLT.Logging.Serilog.Hosting` - Hosting configuration helpers
 - `OLT.Logging.Serilog.MSSqlServer` - SQL Server sink configuration
 
-## License
-
-See the repository license file for details.
