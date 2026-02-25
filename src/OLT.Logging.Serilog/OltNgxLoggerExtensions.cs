@@ -1,9 +1,6 @@
 ﻿
 using Microsoft.Extensions.Logging;
 using Serilog.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace OLT.Logging.Serilog
 {

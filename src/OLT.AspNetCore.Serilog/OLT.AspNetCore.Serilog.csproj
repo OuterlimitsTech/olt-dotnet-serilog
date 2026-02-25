@@ -10,7 +10,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
-		<PackageReference Include="OLT.Core.Exception.Abstractions" Version="9.0.0" />		
+		<PackageReference Include="OLT.Core.Exception.Abstractions" Version="10.0.0" />		
 	</ItemGroup>
 	
   <ItemGroup>		

@@ -5,7 +5,7 @@
 	</PropertyGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="OLT.Extensions.General" Version="10.0.0-beta-0001" />
+		<PackageReference Include="OLT.Extensions.General" Version="10.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="10.0.0" />
     <PackageReference Include="Serilog.Sinks.InMemory" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.0" />

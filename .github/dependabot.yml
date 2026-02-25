@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/" # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: monthly
     labels:
       - "dependencies"
       - "github-actions"
@@ -11,7 +11,11 @@ updates:
   - package-ecosystem: "nuget"
     directory: "/tests"
     schedule:
-      interval: "weekly"
+      interval: monthly
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-patch"  
     labels:
       - "dependencies"
       - "nuget"
