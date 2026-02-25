@@ -6,9 +6,9 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AwesomeAssertions" Version="9.3.0" PrivateAssets="All"  />
-		<PackageReference Include="Faker.Net" Version="2.0.163" PrivateAssets="All"  />
-		<PackageReference Include="coverlet.collector" Version="6.0.2">
+		<PackageReference Include="AwesomeAssertions" Version="9.4.0" PrivateAssets="All"  />
+		<PackageReference Include="Faker.Net" Version="2.0.163" PrivateAssets="All" />
+		<PackageReference Include="coverlet.collector" Version="8.0.0" PrivateAssets="All">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
